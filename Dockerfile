@@ -1,21 +1,21 @@
-# Use an official Rasa image as a parent image
-FROM rasa/rasa:latest
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the project files into the container
+# Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any additional dependencies
-# (Specify dependencies if needed, e.g., for custom actions)
+# Install Flask and other needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port the app runs on
-EXPOSE 5005
+# Expose port 5000 for Flask
+EXPOSE 5000
 
-# Define environment variable for Rasa
-ENV RASA_X_ENABLED=True
+# Define environment variable
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
 
-# Run the Rasa server
-CMD ["rasa", "run", "--cors", "*"]
+# Run Flask
+CMD ["flask", "run"]
