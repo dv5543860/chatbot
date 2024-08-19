@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  flask:
+    build:
+      context: . # Path to your Flask Dockerfile directory
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+
+  rasa:
+    build:
+      context: ./rasa # Path to your Rasa Dockerfile directory
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./rasa:/app
