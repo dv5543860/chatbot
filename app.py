@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session
 from utils import send_message_to_rasa
 
 app = Flask(__name__)
-app.secret_key = '875211c4ed8ec89665a3ec3a8a27c2c8ccd6eceebd44787b'  # Change this to a real secret key
+app.secret_key = '7ecdd05e459dd0d3534b4a5b135a0522280843838202e04e'  # Change this to a real secret key
 
 RASA_SERVER_URL = "https://myrasa-latest.onrender.com"
 
