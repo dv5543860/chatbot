@@ -4,6 +4,8 @@ from utils import send_message_to_rasa
 app = Flask(__name__)
 app.secret_key = '875211c4ed8ec89665a3ec3a8a27c2c8ccd6eceebd44787b'  # Change this to a real secret key
 
+RASA_SERVER_URL = "https://myrasa-latest.onrender.com"
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     if 'chat_history' not in session:
